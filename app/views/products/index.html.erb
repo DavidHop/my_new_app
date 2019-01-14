@@ -8,9 +8,9 @@
 
   <div class="row">
     <% @products.each do |product| %>
+    <%= render @products %>
     <div class="col-xs-12 col-sm-6 col-md-3">
-
-        <div class="thumbnail">
+      <div class="thumbnail">
           <%= image_tag(product.image_url, class: "img-responsive product_img") if product.image_url %>
           <div class="caption">
             <a href="#"><h3><%= product.name %></h3></a>
