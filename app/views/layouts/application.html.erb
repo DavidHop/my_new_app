@@ -25,14 +25,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="#" class="david-hopkins navbar-brand">Boston Boulders</a>
+        <%= link_to "Boston Boulders", root_path, class: "david-hopkins navbar-brand" %>
       </div><!-- end navbar header -->
 
       <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "About", simple_pages_about_path %></li>
           <li><%= link_to "Contact", simple_pages_contact_path %></li>
+          <li><%= link_to "Products", products_path %></li>
         </ul>
       </div><!-- end nav -->
     </div><!-- end nav container -->
