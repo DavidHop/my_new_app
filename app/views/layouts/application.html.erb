@@ -35,8 +35,14 @@
           <li><%= link_to "Contact", simple_pages_contact_path %></li>
           <li><%= link_to "Products", products_path %></li>
         </ul>
+        <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
+          <%= form.label :q, 'Search for:' %>
+          <%= form.text_field :q, id: 'q', value: params[:q] %>
+          <%= form.submit 'Search' %>
+        <% end %>
       </div><!-- end nav -->
     </div><!-- end nav container -->
+
   </nav><!-- end navbar -->
 
     <%= yield %>
