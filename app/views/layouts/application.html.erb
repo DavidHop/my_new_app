@@ -15,6 +15,8 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <!-- navbar start -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -28,6 +30,8 @@
         <%= link_to "Boston Boulders", root_path, class: "david-hopkins navbar-brand" %>
       </div><!-- end navbar header -->
 
+
+
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Home", root_path %></li>
@@ -35,7 +39,18 @@
           <li><%= link_to "Contact", simple_pages_contact_path %></li>
           <li><%= link_to "Products", products_path %></li>
         </ul>
-        <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+              <%= link_to('Login', new_user_session_path, class: "nav-link") %>
+            </li>
+            <% end %>
+          </ul>
+          <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
           <%= form.label :q, 'Search for:' %>
           <%= form.text_field :q, id: 'q', value: params[:q] %>
           <%= form.submit 'Search' %>
