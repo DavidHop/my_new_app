@@ -65,3 +65,6 @@ end
 
   # CanCanCan
   gem 'cancancan', '~> 1.10'
+
+  #Paginate
+  gem 'will_paginate', '~> 3.1.0'
