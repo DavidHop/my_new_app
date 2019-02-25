@@ -33,18 +33,20 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# Use Paginator
+gem 'will_paginate', '~> 3.1.0'
+# Add Paginator bootstrap
+gem 'will_paginate-bootstrap'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3', '~> 1.3.6'  # Use Puma as the app server
-  # Use Paginator
-  gem 'will_paginate', '~> 3.1.0'
-  # Add Paginator bootstrap
-  gem 'will_paginate-bootstrap'
+  gem 'sqlite3'
+  # Use Puma as the app server
 end
 
 group :development do
