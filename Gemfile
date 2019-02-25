@@ -37,13 +37,14 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3'
-  # Use Puma as the app server
+  gem 'sqlite3', '~> 1.3.6'  # Use Puma as the app server
+  # Use Paginator
+  gem 'will_paginate', '~> 3.1.0'
+  # Add Paginator bootstrap
+  gem 'will_paginate-bootstrap'
 end
 
 group :development do
@@ -57,7 +58,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
 end
 
 
@@ -68,5 +68,3 @@ end
 
   # CanCanCan
   gem 'cancancan', '~> 1.10'
-  #Paginate
-  gem 'will_paginate', '~> 3.1.0'
