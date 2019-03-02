@@ -46,6 +46,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', '~>1.3.4'
+  gem 'rspec-rails', '~> 3.8'
   # Use Puma as the app server
 end
 
