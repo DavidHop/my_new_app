@@ -9,11 +9,6 @@ class PaymentsController < ApplicationController
     @ordersObject.each do |order_id|
       order = Order.find(order_id)
 
-      # pre hack validation xD
-      if order.user_id != @user.id
-        redirect_to orders_path, alert: "Something went wrong with your order... Refresh the page and try again."
-      end
-
       @totalPrice = @totalPrice + order.total
     end
 
