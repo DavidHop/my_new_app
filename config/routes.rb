@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'simple_pages#landing_page'
   post 'simple_pages/thank_you'
   get '/products/:id', to: 'products#show'
+  post 'payments/create'
 
   resources :products do
     resources :comments

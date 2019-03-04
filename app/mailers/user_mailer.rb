@@ -7,4 +7,12 @@ class UserMailer < ApplicationMailer
          to: 'your-email@example.com',
          subject: "A new contact form message from #{name}")
   end
+
+  def order_placed(user, product)
+    @user = user
+    @product = product
+    mail(to: user.email,
+      from: email,
+      subject: "Thank you for your money sucka!")
+  end
 end
