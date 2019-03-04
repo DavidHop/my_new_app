@@ -2,8 +2,15 @@ class PaymentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-  @ordersObject = params[:order_ids]
-  @user = current_user
+    @ordersObject = params[:order_ids]
+    @user = current_user
+    @totalPrice = 0
+    @ordersObject.each do |order_id|
+      order = Order.find(order_id)
+
+    @totalPrice = @totalPrice + order.total
+  end
+
   token = params[:stripeToken]
   # Create the charge on Stripe's servers - this will charge the user's card
     begin
@@ -31,4 +38,3 @@ class PaymentsController < ApplicationController
       end
         redirect_to product_path(@product)
     end
-  end
