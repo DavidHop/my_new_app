@@ -4,9 +4,7 @@ class PaymentsController < ApplicationController
   def create
     @ordersObject = params[:order_ids]
     @user = current_user
-    @totalPrice = 0
-    @ordersObject.each do |order_id|
-      order = Order.find(order_id)
+    token = params[:stripeToken]
 
     @totalPrice = @totalPrice + order.total
   end
@@ -26,8 +24,9 @@ class PaymentsController < ApplicationController
           product_id: @product.id,
           user_id: @user.id,
           total: @product.price
+
         )
-        UserMailer.order_placed(@user, @product).deliver_now
+          flash[:success] = "Your payment was processed successfully"
       end
 
       rescue Stripe::CardError => e
@@ -36,6 +35,6 @@ class PaymentsController < ApplicationController
         err = body[:error]
         flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
       end
-        redirect_to product_path(@product)
+        redirect_to product_path(@product), notice: "Thank you for your purchase."
     end
   end
