@@ -4,11 +4,18 @@ class PaymentsController < ApplicationController
   def create
     @ordersObject = params[:order_ids]
     @user = current_user
+    # lets loop this and get the total ammount
+    @totalPrice = 0
     @ordersObject.each do |order_id|
       order = Order.find(order_id)
 
-    @totalPrice = @totalPrice + order.total
-  end
+      # pre hack validation xD
+      if order.user_id != @user.id
+        redirect_to orders_path, alert: "Something went wrong with your order... Refresh the page and try again."
+      end
+
+      @totalPrice = @totalPrice + order.total
+    end
 
   token = params[:stripeToken]
   # Create the charge on Stripe's servers - this will charge the user's card
@@ -27,7 +34,7 @@ class PaymentsController < ApplicationController
           user_id: @user.id,
           total: @product.price
         )
-
+        redirect_to orders_path, notice: "Thank you for the payment"
       end
 
       rescue Stripe::CardError => e
@@ -38,4 +45,5 @@ class PaymentsController < ApplicationController
       end
         redirect_to product_path(@product)
     end
+
   end
