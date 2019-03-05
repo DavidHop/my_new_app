@@ -19,11 +19,11 @@ class PaymentsController < ApplicationController
 
       if charge.paid
         Order.create(
-          product_id: product.id,
+          product_id: @product.id,
           user_id: @user.id,
           total: @product.price
         )
-        redirect_to orders_path, notice: "Thank you for the payment"
+        
       end
 
       rescue Stripe::CardError => e
