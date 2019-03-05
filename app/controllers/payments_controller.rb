@@ -23,7 +23,6 @@ class PaymentsController < ApplicationController
           user_id: @user.id,
           total: @product.price
         )
-        redirect_to orders_path, notice: "Thank you for the payment"
       end
 
       rescue Stripe::CardError => e
