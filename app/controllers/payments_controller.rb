@@ -4,15 +4,9 @@ class PaymentsController < ApplicationController
   def create
     @ordersObject = params[:order_ids]
     @user = current_user
-    # lets loop this and get the total ammount
-    @totalPrice = 0
-    @ordersObject.each do |order_id|
-      order = Order.find(order_id)
 
-      @totalPrice = @totalPrice + order.total
-    end
 
-  token = params[:stripeToken]
+    token = params[:stripeToken]
   # Create the charge on Stripe's servers - this will charge the user's card
     begin
       charge = Stripe::Charge.create(
