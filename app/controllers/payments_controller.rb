@@ -2,7 +2,7 @@ class PaymentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @ordersObject = params[:order_ids]
+    @ordersObject = params[:product_id]
     @user = current_user
 
 
@@ -23,6 +23,7 @@ class PaymentsController < ApplicationController
           user_id: @user.id,
           total: @product.price
         )
+        redirect_to orders_path, notice: "Thank you for the payment"
       end
 
       rescue Stripe::CardError => e
