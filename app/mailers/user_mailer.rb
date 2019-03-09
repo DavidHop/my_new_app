@@ -13,6 +13,6 @@ class UserMailer < ApplicationMailer
     @product = product
     mail(to: user.email,
       from: email,
-      subject: "Thank you for your money sucka!")
+      subject: "Thank you for your purchase!")
   end
 end
