@@ -25,7 +25,7 @@
   <%= @product.price %>
 </p>
 
-<p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
+<p>Average Rating: <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div> </p>
 
 <%= image_tag(@product.image_url, width: "350", class: "img-fluid", class: "img-zoom", data_zoom_image:@product.image_url) if @product.image_url%>
 <%= link_to 'Edit', edit_product_path(@product) %> |
