@@ -24,9 +24,11 @@
         <p><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>
       </div><!-- /col -->
     <% end %>
+
   </div>
+</div>
+<div class="container">
+  <%= link_to 'New Product', new_product_path %>
 </div>
 
 <br>
-
-<%= link_to 'New Product', new_product_path %>

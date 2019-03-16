@@ -40,22 +40,24 @@
           <li><%= link_to "Contact", simple_pages_contact_path %></li>
           <li><%= link_to "Products", products_path %></li>
         </ul>
-          <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
-            </li>
-            <% else %>
-            <li class="nav-item">
-              <%= link_to('Login', new_user_session_path, class: "nav-link") %>
-            </li>
-            <% end %>
-          </ul>
-          <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
-          <%= form.label :q, 'Search for:' %>
-          <%= form.text_field :q, id: 'q', value: params[:q] %>
-          <%= form.submit 'Search' %>
+        <%= form_with(url: products_path, method: 'get', local: true, class:"navbar-form navbar-right") do |form| %>
+          <div class="form-group">
+            <%= form.text_field :q, id: 'q', value: params[:q], placeholder: "Search", class: "form-control" %>
+          </div>
+          <%= form.submit 'Search', class:"btn btn-default" %>
         <% end %>
+
+        <ul class="navbar-nav ml-auto nav">
+          <% if user_signed_in? %>
+          <li>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+          </li>
+          <% else %>
+          <li>
+            <%= link_to('Login', new_user_session_path) %>
+          </li>
+          <% end %>
+        </ul>
       </div><!-- end nav -->
     </div><!-- end nav container -->
 

@@ -4,8 +4,9 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    # add custom create logic here
     super
+    if @user.persisted?
+      UserMailer.welcome(@user).deliver_now
   end
 
   def update
