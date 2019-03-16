@@ -78,3 +78,5 @@ end
   gem 'stripe'
 
   gem "brakeman"
+
+  gem 'dalli'
