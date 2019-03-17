@@ -46,7 +46,7 @@
           </div>
           <%= form.submit 'Search', class:"btn btn-default" %>
         <% end %>
-
+        <% cache do %>
         <ul class="navbar-nav ml-auto nav">
           <% if user_signed_in? %>
           <li>
@@ -58,6 +58,7 @@
           </li>
           <% end %>
         </ul>
+        <% end %>
       </div><!-- end nav -->
     </div><!-- end nav container -->
 
