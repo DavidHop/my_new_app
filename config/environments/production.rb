@@ -104,5 +104,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'bostonboulders.herokuapp.com' }
 
   config.web_socket_server_url = "wss://bostonboulders.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = ['https://bostonboulders.herokuapp.com', 'http://bostonboulders.herokuapp.com']
+  config.action_cable.allowed_request_origins = ['https://bostonboulders.herokuapp.com', 'https://bostonboulders.herokuapp.com']
 end
