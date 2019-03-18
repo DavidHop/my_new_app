@@ -1,45 +1,47 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
+  <div class="row" data-product-id="<%= @product.id %>">
+    <p id="notice"><%= notice %></p>
 
-<% cache @product do %>
-<h2>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</h2>
+    <% cache @product do %>
+    <h2>
+      <strong>Name:</strong>
+      <%= @product.name %>
+    </h2>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @product.description %>
+    </p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
+    <p>
+      <strong>Image url:</strong>
+      <%= @product.image_url %>
+    </p>
 
-<p>
-  <strong>Colour:</strong>
-  <%= @product.colour %>
-</p>
+    <p>
+      <strong>Colour:</strong>
+      <%= @product.colour %>
+    </p>
 
-<p>
-  <strong>Price: $</strong>
-  <%= @product.price %>
-</p>
-<% end %>
-<p>Average Rating: </p><div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div>
+    <p>
+      <strong>Price: $</strong>
+      <%= @product.price %>
+    </p>
+    <% end %>
+    <p>Average Rating: </p><div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div>
 
-<%= image_tag(@product.image_url, width: "350", class: "img-fluid", class: "img-zoom", data_zoom_image:@product.image_url) if @product.image_url%>
-<div>
-  <%= link_to 'Edit', edit_product_path(@product) %> |
-  <%= link_to 'Back', products_path %>
-</div>
-<%= render 'new_comment' %>
-<div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
-<%= render 'comments' %>
-<%= will_paginate @comments %>
-<%= form_with(url: '/payments/create') do |form| %>
-<%= render partial: "shared/stripe_checkout_button" %>
-<%= hidden_field_tag(:product_id, @product.id) %>
-<% end %>
+    <%= image_tag(@product.image_url, width: "350", class: "img-fluid", class: "img-zoom", data_zoom_image:@product.image_url) if @product.image_url%>
+    <div>
+      <%= link_to 'Edit', edit_product_path(@product) %> |
+      <%= link_to 'Back', products_path %>
+    </div>
+    <%= render 'new_comment' %>
+    <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
+    <%= render 'comments' %>
+    <%= will_paginate @comments %>
+    <%= form_with(url: '/payments/create') do |form| %>
+    <%= render partial: "shared/stripe_checkout_button" %>
+    <%= hidden_field_tag(:product_id, @product.id) %>
+    <% end %>
+  </div>
 </div>
