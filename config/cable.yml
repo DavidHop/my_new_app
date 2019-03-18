@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url: postgres://kyevsmubqatjdc:1b0dbd8ff2004390d1af7c1f7f1652fa35fd4d645a47319ad95459664b606894@ec2-54-204-36-249.compute-1.amazonaws.com:5432/df9tuq6d4mhe31
   channel_prefix: nameofapp_production

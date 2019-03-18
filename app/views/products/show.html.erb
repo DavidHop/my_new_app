@@ -35,6 +35,7 @@
   <%= link_to 'Back', products_path %>
 </div>
 <%= render 'new_comment' %>
+<div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
 <%= render 'comments' %>
 <%= will_paginate @comments %>
 <%= form_with(url: '/payments/create') do |form| %>

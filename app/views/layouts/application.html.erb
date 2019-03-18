@@ -36,9 +36,9 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Products", products_path %></li>
           <li><%= link_to "About", simple_pages_about_path %></li>
           <li><%= link_to "Contact", simple_pages_contact_path %></li>
-          <li><%= link_to "Products", products_path %></li>
         </ul>
         <%= form_with(url: products_path, method: 'get', local: true, class:"navbar-form navbar-right") do |form| %>
           <div class="form-group">
