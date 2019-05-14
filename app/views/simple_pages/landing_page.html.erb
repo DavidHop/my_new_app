@@ -3,4 +3,7 @@
   <%= @featured_product.name %>
   <%= image_tag(@featured_product.image_url, class: "img-responsive product_img") if @featured_product.image_url %>
   <%= params[:example_key] %>
+  <% if @hit_counter %>
+    <p> hit counter: <%= @hit_counter %> </p>
+  <% end %>
 </div>
